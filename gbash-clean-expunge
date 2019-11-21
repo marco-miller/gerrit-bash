@@ -1,0 +1,5 @@
+#!/bin/bash
+
+bazel clean --expunge
+
+bazel shutdown
