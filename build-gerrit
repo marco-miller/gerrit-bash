@@ -1,0 +1,6 @@
+#!/bin/bash
+
+bazel clean && \
+bazel build gerrit
+
+bazel shutdown
