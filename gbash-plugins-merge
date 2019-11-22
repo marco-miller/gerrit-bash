@@ -1,0 +1,18 @@
+#!/bin/bash
+
+branch=${PWD##*/}
+from=$1
+
+gbash-plugins-update-push
+
+git submodule foreach "git checkout origin/${branch}" && \
+
+git submodule foreach "git branch -D ${from} || echo no branch" && \
+git submodule foreach "git checkout -t origin/${from} && git pull || echo no branch" && \
+
+git submodule foreach "git branch -D ${branch} || echo no branch" && \
+git submodule foreach "git checkout -t origin/${branch} && git pull" && \
+
+git submodule foreach "git merge ${from} --no-commit --no-ff -s recursive -X ours || echo no merge"
+
+git status
