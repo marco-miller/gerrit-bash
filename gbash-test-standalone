@@ -1,0 +1,15 @@
+#!/bin/bash
+
+plugin=$1
+branch=$2
+
+cd "$branch"/"$plugin" && \
+
+bazel clean --expunge && \
+bazel build "$plugin" && \
+bazel test //... && \
+bazel clean --expunge
+
+bazel shutdown
+
+cd - || die

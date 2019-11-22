@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gbash-plugins-verify-for "${PWD##*/}"

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+plugin=$1
+branch=$2
+project=$3
+
+gbash-install-intree "$plugin" "$branch" "$project"
+
+bazel clean && \
+bazel build plugins/"$plugin" && \
+bazel test --nocache_test_results plugins/"$plugin:${plugin}_tests"
+
+bazel shutdown
+
+gbash-uninstall-intree "$plugin"
