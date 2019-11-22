@@ -4,3 +4,5 @@ find . -name *.java \
   | grep -v apt_generated \
   | grep -v modules \
   | xargs ./tools/format/google-java-format-1.7 --replace
+
+git status
