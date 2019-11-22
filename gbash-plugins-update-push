@@ -1,0 +1,7 @@
+#!/bin/bash
+
+branch=${PWD##*/}
+
+gbash-plugins-update
+
+git push origin HEAD:"${branch}"
