@@ -1,0 +1,9 @@
+#!/bin/bash
+
+plugin=$1
+
+git checkout -- plugins/external_plugin_deps.bzl
+
+rm plugins/"$plugin"
+
+git status
