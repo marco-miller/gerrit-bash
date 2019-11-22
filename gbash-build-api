@@ -1,0 +1,8 @@
+#!/bin/bash
+
+gbash-build-gerrit
+
+bazel build api && \
+./tools/maven/api.sh install
+
+bazel shutdown
