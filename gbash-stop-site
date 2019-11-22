@@ -1,0 +1,5 @@
+#!/bin/bash
+
+testsite=$HOME/git/gerrit/testsites/testsite$1
+
+"$testsite"/bin/gerrit.sh stop

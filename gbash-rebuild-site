@@ -1,8 +1,9 @@
 #!/bin/bash
 
+gbash-stop-site $1
+
 testsite=$HOME/git/gerrit/testsites/testsite$1
 
-"$testsite"/bin/gerrit.sh stop && \
 rm -fr "$testsite"
 
 gbash-build-gerrit
