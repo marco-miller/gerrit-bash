@@ -4,7 +4,9 @@ plugin=$1
 branch=$2
 project=$3
 
+sed -i 's/# Add custom core plugins here/# Add custom core plugins here\n    \"'"$plugin"'\",/' \
+  ./tools/bzl/plugins.bzl && \
+sed -i 's/# Add custom core plugins with tests deps here/# Add custom core plugins with tests deps here\n    \"'"$plugin"'\",/' \
+  ./tools/bzl/plugins.bzl && \
 ln -sf "$HOME"/git/gerrit/"$project"/"$branch"/"$plugin" plugins/ && \
 cp plugins/"$plugin"/external_plugin_deps.bzl plugins/
-
-sed -i 's/# Add custom core plugins here/# Add custom core plugins here\n    \"'"$plugin"'\",/' ./tools/bzl/plugins.bzl
