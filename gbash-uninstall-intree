@@ -2,6 +2,7 @@
 
 plugin=$1
 
+git checkout -- tools/bzl/plugins.bzl && \
 git checkout -- plugins/external_plugin_deps.bzl
 
 rm plugins/"$plugin"
