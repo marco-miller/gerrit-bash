@@ -3,7 +3,7 @@
 export branch=${PWD##*/}
 export core=$1
 
-git status|grep modified|awk '{print $2}'|xargs -I % sh -c "
+git status|grep modified:|awk '{print $2}'|xargs -I % sh -c "
   cd $HOME/git/gerrit/plugins &&
   gbash-test-standalone % $branch &&
   cd - &&
