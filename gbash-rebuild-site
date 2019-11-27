@@ -15,5 +15,8 @@ bazel build release && \
   --batch \
   --dev \
   --install-all-plugins \
-  -d "$testsite" && \
+  -d "$testsite"
+
+bazel shutdown
+
 tail -f "$testsite"/logs/error_log
