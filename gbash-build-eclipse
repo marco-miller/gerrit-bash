@@ -3,3 +3,5 @@
 gbash-build-gerrit
 
 ./tools/eclipse/project.py
+
+bazel shutdown
