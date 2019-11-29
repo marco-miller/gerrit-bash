@@ -1,0 +1,5 @@
+#!/bin/bash
+
+gbash-build-gerrit
+
+./tools/eclipse/project.py
