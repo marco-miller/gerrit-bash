@@ -1,0 +1,9 @@
+#!/bin/bash
+
+plugin=$1
+
+bazel clean && \
+bazel build plugins/"$plugin" && \
+bazel test --nocache_test_results plugins/"$plugin:${plugin}_tests"
+
+bazel shutdown
