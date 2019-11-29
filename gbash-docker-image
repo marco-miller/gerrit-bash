@@ -1,3 +1,5 @@
 #!/bin/bash
 
+gbash-docker-containers
+
 docker rmi $1
