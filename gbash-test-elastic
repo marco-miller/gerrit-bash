@@ -2,6 +2,8 @@
 
 gbash-build-gerrit
 
-bazel test --test_tag_filters=elastic //...
+bazel test \
+  --test_arg=--jvm_flags=-Xmx1024m \
+  --test_tag_filters=elastic //...
 
 bazel shutdown
