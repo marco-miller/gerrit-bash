@@ -1,0 +1,6 @@
+#!/bin/bash
+
+git fetch && \
+git submodule update --init
+
+git status
