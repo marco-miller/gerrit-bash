@@ -11,5 +11,3 @@ bazel build plugins/"$plugin" && \
 bazel test --nocache_test_results plugins/"$plugin:${plugin}_tests"
 
 bazel shutdown
-
-gbash-uninstall-intree "$plugin"
