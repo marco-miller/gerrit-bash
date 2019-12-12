@@ -6,9 +6,16 @@ project=$3
 
 git checkout -- tools/bzl/plugins.bzl
 
-sed -i 's/# Add custom core plugins here/# Add custom core plugins here\n    \"'"$plugin"'\",/' \
+extension=''
+if [[ "`uname`" == 'Darwin' ]]; then
+  extension='.bak'
+fi
+
+sed -i "$extension" 's/# Add custom core plugins here/# Add custom core plugins here\
+    \"'"$plugin"'\",/' \
   tools/bzl/plugins.bzl && \
-sed -i 's/# Add custom core plugins with tests deps here/# Add custom core plugins with tests deps here\n    \"'"$plugin"'\",/' \
+sed -i "$extension" 's/# Add custom core plugins with tests deps here/# Add custom core plugins with tests deps here\
+    \"'"$plugin"'\",/' \
   tools/bzl/plugins.bzl && \
 ln -sf "$HOME"/git/gerrit/"$project"/"$branch"/"$plugin" plugins/ && \
 cp plugins/"$plugin"/external_plugin_deps.bzl plugins/
