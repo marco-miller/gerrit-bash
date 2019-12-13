@@ -17,5 +17,6 @@ sed -i "$extension" 's/# Add custom core plugins here/# Add custom core plugins 
 sed -i "$extension" 's/# Add custom core plugins with tests deps here/# Add custom core plugins with tests deps here\
     \"'"$plugin"'\",/' \
   tools/bzl/plugins.bzl && \
+rm tools/bzl/plugins.bzl.bak && \
 ln -sf "$HOME"/git/gerrit/"$project"/"$branch"/"$plugin" plugins/ && \
 cp plugins/"$plugin"/external_plugin_deps.bzl plugins/
