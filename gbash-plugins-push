@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export branch=${PWD##*/}
+
+git status|grep modified:|awk '{print $2}'|xargs -I % sh -c '
+  cd % &&
+  git push origin HEAD:refs/for/$branch &&
+  cd -'
