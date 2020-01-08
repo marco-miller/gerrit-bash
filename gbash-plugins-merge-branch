@@ -20,7 +20,7 @@ git status|grep both|awk '{print $3}'|xargs -I % sh -c '
 git status|grep deleted|awk '{print $4}'|xargs -I % sh -c '
   git rm %' && \
 
-git commit #&& \
+git commit && \
 git push origin HEAD:"${branch}"
 
 git status
