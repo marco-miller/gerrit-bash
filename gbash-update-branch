@@ -1,0 +1,11 @@
+#!/bin/bash
+
+branch=$1
+
+gbash-update-reset
+
+git checkout "${branch}" && \
+git pull && \
+git submodule update --init
+
+git status
