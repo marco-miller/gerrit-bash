@@ -1,8 +1,9 @@
 #!/bin/bash
 
-gbash-stop-site $1
+gbash-stop-site
 
-testsite=$HOME/git/gerrit/testsites/testsite$1
+branch=${PWD##*/}
+testsite=$HOME/git/gerrit/testsites/${branch}
 
 bazel build release && \
 bazel shutdown && \

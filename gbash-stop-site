@@ -1,5 +1,6 @@
 #!/bin/bash
 
-testsite=$HOME/git/gerrit/testsites/testsite$1
+branch=${PWD##*/}
+testsite=$HOME/git/gerrit/testsites/${branch}
 
 "$testsite"/bin/gerrit.sh stop
