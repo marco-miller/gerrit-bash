@@ -2,7 +2,8 @@
 
 plugin=$1
 
-bazel clean && \
+gbash-build-gerrit
+
 bazel build plugins/"$plugin" && \
 bazel test --nocache_test_results plugins/"$plugin:${plugin}_tests"
 
