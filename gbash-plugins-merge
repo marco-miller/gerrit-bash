@@ -2,21 +2,17 @@
 
 branch=${PWD##*/}
 from=$1
-unless=$2
 
 gbash-plugins-update-push
 
 git submodule foreach "git checkout origin/${branch}" && \
 
-git submodule foreach "git branch -D ${unless} || \
-    git branch -D ${from} || echo no branch" && \
-git submodule foreach "git checkout -t origin/${unless} && git pull || \
-    git checkout -t origin/${from} && git pull || echo no branch" && \
+git submodule foreach "git branch -D ${from} || echo no branch" && \
+git submodule foreach "git checkout -t origin/${from} && git pull || echo no branch" && \
 
 git submodule foreach "git branch -D ${branch} || echo no branch" && \
 git submodule foreach "git checkout -t origin/${branch} && git pull" && \
 
-git submodule foreach "git merge ${unless} --no-commit --no-ff -s recursive -X ours || \
-    git merge ${from} --no-commit --no-ff -s recursive -X ours || echo no merge"
+git submodule foreach "git merge ${from} --no-commit --no-ff -s recursive -X ours || echo no merge"
 
 git status
