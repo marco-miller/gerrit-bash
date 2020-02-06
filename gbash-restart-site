@@ -1,0 +1,10 @@
+#!/bin/bash
+
+branch=${PWD##*/}
+testsite=$HOME/git/gerrit/testsites/${branch}
+
+gbash-stop-site
+
+"$testsite"/bin/gerrit.sh start
+
+tail -f "$testsite"/logs/error_log
