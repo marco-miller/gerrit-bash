@@ -1,6 +1,6 @@
 #!/bin/bash
 
-branch=${PWD##*/}
-from=$1
+branch=$1
+from=${PWD##*/}
 
 gbash-plugins-merge-these ${branch} ${from} ${from}
