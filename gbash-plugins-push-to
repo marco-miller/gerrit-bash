@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# -Usage examples; informal script:
+# gbash-plugins-push
+# gbash-plugins-push l=Verified
+# gbash-plugins-push l=Verified, r=marco.miller@ericsson.com[,r=an.other@example.com]
+
+export branch=$1
+export label=$2
+export reviewers=$3
+
+git status|grep modified:|awk '{print $2}'|xargs -I %% sh -c '
+  cd %% &&
+  git push origin HEAD:refs/for/${branch}%${label}${reviewers} &&
+  cd -'
