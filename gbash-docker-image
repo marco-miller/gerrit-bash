@@ -2,4 +2,4 @@
 
 gbash-docker-containers
 
-docker rmi $1
+docker rmi "$1"

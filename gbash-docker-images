@@ -2,4 +2,5 @@
 
 gbash-docker-containers
 
+# shellcheck disable=SC2046
 docker rmi $(docker images|grep "^<none>"|awk "{print $3}")
