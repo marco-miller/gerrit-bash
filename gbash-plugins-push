@@ -4,4 +4,4 @@ export branch=${PWD##*/}
 export label=$1
 export reviewers=$2
 
-gbash-plugins-push-to ${branch} ${label} ${reviewers}
+gbash-plugins-push-to "${branch}" "${label}" "${reviewers}"

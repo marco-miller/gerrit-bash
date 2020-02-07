@@ -9,7 +9,7 @@ export branch=$1
 export label=$2
 export reviewers=$3
 
-git status|grep modified:|awk '{print $2}'|xargs -I %% sh -c '
+git status|grep modified:|awk '{print $2}'|xargs -I %% sh -c "
   cd %% &&
   git push origin HEAD:refs/for/${branch}%${label}${reviewers} &&
-  cd -'
+  cd -"
