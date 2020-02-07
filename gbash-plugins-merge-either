@@ -4,4 +4,4 @@ branch=${PWD##*/}
 from=$1
 unless=$2
 
-gbash-plugins-merge-these ${branch} ${from} ${unless}
+gbash-plugins-merge-these "${branch}" "${from}" "${unless}"

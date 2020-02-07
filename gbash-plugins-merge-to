@@ -3,4 +3,4 @@
 branch=$1
 from=${PWD##*/}
 
-gbash-plugins-merge-these ${branch} ${from} ${from}
+gbash-plugins-merge-these "${branch}" "${from}" "${from}"
