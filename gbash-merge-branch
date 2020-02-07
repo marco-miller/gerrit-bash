@@ -3,10 +3,8 @@
 branch=${PWD##*/}
 from=$1
 
-gbash-plugins-update-push
-
 gbash-merge "${from}" "${branch}"
 
-git push origin HEAD:"${branch}"
+git push origin HEAD:refs/for/"${branch}"
 
 git status
