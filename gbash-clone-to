@@ -1,0 +1,12 @@
+#!/bin/bash
+
+from=$1
+branch=$2
+
+git clone https://gerrit.googlesource.com/"$from" "$branch" && \
+cd "$branch" && \
+(f=$(git rev-parse --git-dir)/hooks/commit-msg; \
+ mkdir -p "$(dirname "$f")"; \
+ curl -Lo "$f" https://gerrit-review.googlesource.com/tools/hooks/commit-msg; \
+ chmod +x "$f") && \
+git checkout origin/"$branch"

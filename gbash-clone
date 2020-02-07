@@ -1,0 +1,6 @@
+#!/bin/bash
+
+from=$1
+branch=$from
+
+gbash-clone-to "$from" "$branch"
