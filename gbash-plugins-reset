@@ -2,13 +2,12 @@
 
 branch=${PWD##*/}
 
-git submodule foreach "git fetch" && \
-git submodule foreach "git reset --hard origin/${branch}" && \
-git submodule foreach "git checkout ${branch}" && \
-git submodule foreach "git reset --hard origin/${branch}" && \
+git submodule foreach git fetch && \
+git submodule foreach git reset --hard origin/"$branch" && \
+git submodule foreach git checkout "$branch" && \
+git submodule foreach git reset --hard origin/"$branch" && \
 
 git fetch && \
-git reset --hard origin/"${branch}" && \
+git reset --hard origin/"$branch" && \
 git submodule update --init
-
 git status

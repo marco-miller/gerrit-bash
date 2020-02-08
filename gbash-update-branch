@@ -4,9 +4,8 @@ branch=$1
 
 gbash-update-reset
 
-git checkout "${branch}" && \
-git reset --hard origin/"${branch}" && \
+git checkout "$branch" && \
+git reset --hard origin/"$branch" && \
 git pull && \
 git submodule update --init
-
 git status

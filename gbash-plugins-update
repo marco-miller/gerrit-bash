@@ -4,7 +4,6 @@ branch=${PWD##*/}
 
 gbash-plugins-reset
 
-git submodule foreach "git fetch && git checkout -q origin/${branch}" && \
+git submodule foreach "git fetch && git checkout -q origin/$branch" && \
 git commit -a -m "Update revisions"
-
 git status

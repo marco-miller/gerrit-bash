@@ -4,4 +4,4 @@ branch=${PWD##*/}
 
 gbash-plugins-update
 
-git push origin HEAD:"${branch}"
+git push origin HEAD:"$branch"

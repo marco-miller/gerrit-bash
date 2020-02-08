@@ -2,4 +2,4 @@
 
 gbash-clean-caches
 
-rm -fR "${HOME}"/.m2/repository/*
+rm -fR "$HOME"/.m2/repository/*
