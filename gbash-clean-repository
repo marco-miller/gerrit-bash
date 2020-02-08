@@ -1,0 +1,5 @@
+#!/bin/bash
+
+gbash-clean-caches
+
+rm -fR "${HOME}"/.m2/repository/*

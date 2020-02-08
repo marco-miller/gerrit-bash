@@ -1,0 +1,6 @@
+#!/bin/bash
+
+gbash-clean-expunge
+
+rm -fR "${HOME}"/.gerritcodereview/bazel-cache/*
+rm -fR /private/var/tmp/_bazel_"${USER}"/*
