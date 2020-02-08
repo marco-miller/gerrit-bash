@@ -9,7 +9,6 @@ bazel clean --expunge && \
 bazel build "$plugin" && \
 bazel test //... && \
 bazel clean --expunge
-
 bazel shutdown
 
 cd - || die

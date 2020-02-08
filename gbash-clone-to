@@ -8,5 +8,4 @@ cd "$branch" && \
 gbash-install-hook
 
 git checkout origin/"$branch"
-
 git status

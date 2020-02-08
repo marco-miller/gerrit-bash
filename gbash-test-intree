@@ -5,5 +5,4 @@ branch=$2
 project=$3
 
 gbash-install-intree "$plugin" "$branch" "$project"
-
 gbash-test-plugin "$plugin"
