@@ -1,13 +1,13 @@
 #!/bin/bash
 
-export branch=${PWD##*/}
-export core=$1
+branch=${PWD##*/}
+core=$1
 
-git status|grep modified:|awk '{print $2}'|xargs -I % sh -c "
+git status|grep modified:|awk '{print $2}'|xargs -I %% sh -c "
   cd $HOME/git/gerrit/plugins &&
-  gbash-test-standalone % $branch &&
+  gbash-test-standalone %% $branch &&
   cd - &&
   cd $HOME/git/gerrit/core/$core &&
-  gbash-test-intree % $branch plugins &&
-  gbash-uninstall-intree % &&
+  gbash-test-intree %% $branch plugins &&
+  gbash-uninstall-intree %% &&
   cd -"
