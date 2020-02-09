@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export core=$1
+core=$1
 
 find . -name '*.java' \
   | grep -v apt_generated \
