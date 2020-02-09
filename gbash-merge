@@ -3,6 +3,7 @@
 from=$1
 branch=$2
 
+git stash
 git fetch && \
 git checkout origin/"$branch" && \
 
