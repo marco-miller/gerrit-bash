@@ -1,13 +1,14 @@
 #!/bin/bash
 
-branch=${PWD##*/}
-core=$1
+export branch=${PWD##*/}
+export core=$1
 
-git status|grep modified:|awk '{print $2}'|xargs -I %% sh -c "
+# shellcheck disable=SC2016
+git status|grep modified:|awk '{print $2}'|xargs -I % sh -c '
   cd $HOME/git/gerrit/plugins &&
-  gbash-test-standalone %% $branch &&
+  gbash-test-standalone % $branch &&
   cd - &&
   cd $HOME/git/gerrit/core/$core &&
-  gbash-test-intree %% $branch plugins &&
-  gbash-uninstall-intree %% &&
-  cd -"
+  gbash-test-intree % $branch plugins &&
+  gbash-uninstall-intree % &&
+  cd -'
