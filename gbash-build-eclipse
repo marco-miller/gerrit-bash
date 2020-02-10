@@ -1,6 +1,6 @@
 #!/bin/bash
 
-gbash-build-gerrit
+gbash-rebuild-gerrit
 
 ./tools/eclipse/project.py || \
 ./tools/eclipse/project.sh

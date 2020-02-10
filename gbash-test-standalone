@@ -11,4 +11,4 @@ bazel test //... && \
 bazel clean --expunge
 bazel shutdown
 
-cd - || die
+cd - || exit

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-gbash-build-gerrit
+gbash-rebuild-gerrit
 
 bazel test \
   --test_arg=--jvm_flags=-Xmx1024m \

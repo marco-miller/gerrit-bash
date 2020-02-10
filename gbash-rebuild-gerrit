@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gbash-clean-expunge
+gbash-build-gerrit
