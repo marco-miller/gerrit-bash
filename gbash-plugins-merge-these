@@ -6,7 +6,7 @@ unless=$3
 
 gbash-plugins-update-push
 
-git submodule foreach git checkout origin/$"branch" && \
+git submodule foreach git checkout origin/"$branch" && \
 
 git submodule foreach "git branch -D $unless || \
   git branch -D $from || echo no branch" && \
