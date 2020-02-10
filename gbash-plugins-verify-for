@@ -16,3 +16,7 @@ git status|grep modified:|awk '{print $2}'|xargs -I % sh -c '
   gbash-test-intree % $branch plugins &&
   gbash-uninstall-intree % &&
   cd -'
+
+cd "$HOME"/git/gerrit/core/"$core" && \
+bazel shutdown && \
+cd - || exit
