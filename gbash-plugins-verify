@@ -1,3 +1,5 @@
 #!/bin/bash
 
-gbash-plugins-verify-for "${PWD##*/}"
+plugin=$1
+
+gbash-plugins-verify-for "${PWD##*/}" "$plugin"
