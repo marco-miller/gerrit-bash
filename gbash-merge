@@ -13,7 +13,7 @@ git checkout -t origin/"$from" && git pull || echo no branch && \
 git branch -D "$branch" || echo no branch && \
 git checkout -t origin/"$branch" && git pull && \
 
-git merge "$from" --no-commit --no-ff -s recursive -X ours || echo no merge && \
+git merge "$from" --no-commit --no-ff || echo no merge && \
 
 git status|grep deleted|awk '{print $4}'|xargs -I % sh -c '
   git rm %'
