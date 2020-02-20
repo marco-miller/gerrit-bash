@@ -15,8 +15,5 @@ git checkout -t origin/"$branch" && git pull && \
 
 git merge "$from" --no-commit --no-ff -s recursive -X ours || echo no merge && \
 
-git status|grep both|awk '{print $3}'|xargs -I % sh -c '
-  git add %' && \
 git status|grep deleted|awk '{print $4}'|xargs -I % sh -c '
-  git rm %' && \
-git commit
+  git rm %'
