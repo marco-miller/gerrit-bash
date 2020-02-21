@@ -1,0 +1,5 @@
+#!/bin/bash
+
+branch=${PWD##*/}
+
+gbash-update-branch "$branch"
