@@ -1,0 +1,7 @@
+#!/bin/bash
+
+gbash-rebuild-gerrit
+
+bazel test //...
+
+bazel shutdown
