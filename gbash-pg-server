@@ -1,0 +1,5 @@
+#!/bin/bash
+
+gbash-rebuild-gerrit
+
+bazel run polygerrit-ui:devserver

@@ -3,5 +3,4 @@
 gbash-rebuild-gerrit
 
 bazel test --test_tag_filters=-elastic //...
-
 bazel shutdown
