@@ -5,6 +5,5 @@ from=$1
 
 gbash-merge "$from" "$branch"
 
-#git push origin HEAD:refs/for/"$branch"
 git submodule update --init
 git status
