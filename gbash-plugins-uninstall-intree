@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export core=${PWD##*/}
+
+# shellcheck disable=SC2016
+git status|grep modified:|awk '{print $2}'|xargs -I % sh -c '
+  cd $HOME/git/gerrit/core/$core &&
+  gbash-uninstall-intree % &&
+  cd -'
