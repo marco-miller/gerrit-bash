@@ -5,7 +5,7 @@ export core=$1
 plugin=$2
 
 cd "$HOME"/git/gerrit/core/"$core" && \
-gbash-rebuild-gerrit && \
+gbash-rebuild-api && \
 cd - || exit
 
 # shellcheck disable=SC2016
