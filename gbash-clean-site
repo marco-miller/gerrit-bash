@@ -1,0 +1,7 @@
+#!/bin/bash
+
+branch=${PWD##*/}
+testsite=$HOME/git/gerrit/testsites/$branch
+
+gbash-stop-site
+rm -fR "$testsite"

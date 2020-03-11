@@ -4,9 +4,8 @@ branch=${PWD##*/}
 testsite=$HOME/git/gerrit/testsites/$branch
 
 gbash-stop-site
-rm -fR "$testsite"
-
 gbash-rebuild-gerrit
+
 bazel build release && \
 bazel shutdown && \
 "$(bazel info output_base)"/external/local_jdk/bin/java -jar \
