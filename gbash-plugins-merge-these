@@ -16,6 +16,6 @@ git submodule foreach "git checkout -t origin/$unless && git pull || \
 git submodule foreach "git branch -D $branch || echo no branch" && \
 git submodule foreach "git checkout -t origin/$branch && git pull" && \
 
-git submodule foreach "git merge $unless --no-commit --no-ff -s recursive -X ours || \
-  git merge $from --no-commit --no-ff -s recursive -X ours || echo no merge"
+git submodule foreach "git merge $unless --no-commit --no-ff || \
+  git merge $from --no-commit --no-ff || echo no merge"
 git status
