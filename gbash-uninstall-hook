@@ -1,0 +1,4 @@
+#!/bin/bash
+
+f=$(git rev-parse --git-dir)/hooks/commit-msg; \
+  rm "$f"
