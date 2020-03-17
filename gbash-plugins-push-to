@@ -4,12 +4,14 @@
 # gbash-plugins-push
 # gbash-plugins-push l=Verified
 # gbash-plugins-push l=Verified, r=marco.miller@ericsson.com[,r=an.other@example.com]
+# gbash-plugins-push l=Verified, r=marco.miller@ericsson.com[,r=an.other@example.com], t=hashed
 
 branch=$1
 label=$2
 reviewers=$3
+hashtag=$4
 
 git status|grep modified:|awk '{print $2}'|xargs -I %% sh -c "
   cd %% &&
-  git push origin HEAD:refs/for/${branch}%${label}${reviewers} &&
+  git push origin HEAD:refs/for/${branch}%${label}${reviewers}${hashtag} &&
   cd -"

@@ -3,5 +3,6 @@
 branch=${PWD##*/}
 label=$1
 reviewers=$2
+hashtag=$3
 
-gbash-plugins-push-to "$branch" "$label" "$reviewers"
+gbash-plugins-push-to "$branch" "$label" "$reviewers" "$hashtag"
