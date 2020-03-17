@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# -Path argument below shall be
+# 1. double-quoted,
+# 2. with no trailing slash, and
+# 3. with every other slash escaped.
+
+path=$1
+
+git checkout -- WORKSPACE
+
+extension=''
+if [[ "$(uname)" == 'Darwin' ]]; then
+  extension='.bak'
+fi
+
+sed -i "$extension" 's/#local_path = \"\/home\/<user>\/projects\/bazlets/local_path = \"'"$path"'/' \
+  WORKSPACE && \
+rm WORKSPACE.bak
