@@ -4,7 +4,7 @@ branch=${PWD##*/}
 testsite=$HOME/git/gerrit/testsites/$branch
 
 gbash-clean-site
-gbash-rebuild-gerrit
+gbash-build-gerrit
 
 bazel build release && \
 bazel shutdown && \
