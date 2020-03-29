@@ -1,0 +1,5 @@
+#!/bin/bash
+
+plugin=$1
+
+gbash-plugins-verify-for-standalone "$plugin"

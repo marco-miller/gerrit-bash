@@ -1,0 +1,10 @@
+#!/bin/bash
+
+export branch=${PWD##*/}
+plugin=$1
+
+# shellcheck disable=SC2016
+git status|grep modified:|grep "$plugin"|awk '{print $2}'|xargs -I % sh -c '
+  cd $HOME/git/gerrit/plugins &&
+  gbash-test-standalone % $branch &&
+  cd -'
