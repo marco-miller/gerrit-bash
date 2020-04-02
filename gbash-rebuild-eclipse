@@ -1,8 +1,4 @@
 #!/bin/bash
 
-gbash-rebuild-gerrit
-
-./tools/eclipse/project.py || \
-./tools/eclipse/project.sh
-
-bazel shutdown
+gbash-clean-expunge
+gbash-build-eclipse

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+gbash-build-gerrit
+
+./tools/eclipse/project.py || \
+./tools/eclipse/project.sh
+
+bazel shutdown
