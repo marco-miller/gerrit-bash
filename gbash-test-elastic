@@ -3,6 +3,7 @@
 gbash-rebuild-gerrit
 
 bazel test \
+  --nocache_test_results \
   --test_arg=--jvm_flags=-Xmx1024m \
   --test_tag_filters=elastic //...
 
