@@ -1,6 +1,11 @@
 #!/bin/bash
 
 plugin=$1
+tests=$2
 
-bazel build plugins/"$plugin" && \
-bazel test --nocache_test_results plugins/"$plugin:${plugin}_tests"
+if [ -z "$tests" ]; then
+  tests=$plugin
+fi
+
+bazel build plugins/"$plugin" &&
+bazel test --nocache_test_results plugins/"$plugin:${tests}_tests"
