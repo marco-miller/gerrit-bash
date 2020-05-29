@@ -14,6 +14,9 @@ bazel shutdown && \
   --batch \
   --dev \
   --install-all-plugins \
+  --no-auto-start \
   -d "$testsite"
 
-tail -f "$testsite"/logs/error_log
+printf "[user]\n\temail = test@mail.com\n" >> "$testsite"/etc/gerrit.config
+
+gbash-restart-site
