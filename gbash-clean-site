@@ -6,4 +6,4 @@ branch=${PWD##*/}
 testsite=$HOME/git/gerrit/testsites/$branch$suffix
 
 gbash-stop-site "$suffix"
-rm -fR "$testsite"
+sudo rm -fR "$testsite"
