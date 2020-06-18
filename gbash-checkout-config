@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git fetch origin refs/meta/config:config && \
+git checkout config
+git status
