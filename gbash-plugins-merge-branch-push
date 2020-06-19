@@ -1,0 +1,9 @@
+#!/bin/bash
+
+branch=${PWD##*/}
+from=$1
+
+gbash-plugins-merge-branch "$from"
+
+git push origin HEAD:"$branch"
+git status
