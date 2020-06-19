@@ -7,5 +7,4 @@ gbash-plugins-update-push
 gbash-merge "$from" "$branch"
 
 git commit -a
-git push origin HEAD:"$branch"
 git status
