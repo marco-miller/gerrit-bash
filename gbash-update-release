@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# -Usage example; informal script:
+# gbash-update-release 3.0.13
+
+version=$1
+
+(./tools/version.py "$version" && \
+ git commit -a -m "Set version to $version") || die
+
+# shellcheck disable=SC2155
+export GPG_TTY=$(tty)
+
+# shellcheck disable=SC2154
+(git tag -f -s -m "v$version" "v$version" && \
+ git submodule foreach "if [ '$path' != 'modules/jgit' ]; then git tag -f -s -m v$version v$version; fi") || die
+
+bazel build release Documentation:searchfree && \
+./tools/maven/api.sh war_install && \
+./tools/maven/api.sh install && \
+
+java -jar bazel-bin/release.war --version && \
+java -jar bazel-bin/release.war init --list-plugins && \
+bazel shutdown && \
+gbash-build-site

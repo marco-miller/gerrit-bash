@@ -1,0 +1,16 @@
+#!/bin/bash
+
+branch=${PWD##*/}
+testsite=$HOME/git/gerrit/testsites/$branch
+
+"$(bazel info output_base)"/external/local_jdk/bin/java -jar \
+  bazel-bin/release.war init \
+  --batch \
+  --dev \
+  --install-all-plugins \
+  --no-auto-start \
+  -d "$testsite"
+
+printf "[user]\n\temail = test@mail.com\n" >> "$testsite"/etc/gerrit.config
+
+gbash-restart-site

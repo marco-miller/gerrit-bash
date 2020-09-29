@@ -1,22 +1,8 @@
 #!/bin/bash
 
-branch=${PWD##*/}
-testsite=$HOME/git/gerrit/testsites/$branch
-
 gbash-clean-site
 gbash-build-gerrit
 
 bazel build release && \
 bazel shutdown && \
-"$(bazel info output_base)"/external/local_jdk/bin/java -jar \
-  -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 \
-  bazel-bin/release.war init \
-  --batch \
-  --dev \
-  --install-all-plugins \
-  --no-auto-start \
-  -d "$testsite"
-
-printf "[user]\n\temail = test@mail.com\n" >> "$testsite"/etc/gerrit.config
-
-gbash-restart-site
+gbash-build-site
