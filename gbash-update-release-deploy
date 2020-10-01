@@ -1,0 +1,12 @@
+#!/bin/bash
+
+version=$1
+gbash-update-release-push "$version"
+
+# shellcheck disable=SC2155
+export GPG_TTY=$(tty)
+
+export VERBOSE=1
+./tools/maven/api.sh war_deploy && \
+./tools/maven/api.sh deploy
+git status
