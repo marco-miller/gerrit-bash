@@ -1,9 +1,0 @@
-#!/bin/bash
-
-branch=${PWD##*/}
-version=$1
-
-gbash-update-release "$version"
-
-git push origin HEAD:refs/for/"$branch"
-git status

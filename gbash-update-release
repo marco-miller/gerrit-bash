@@ -3,6 +3,7 @@
 # -Usage example; informal script:
 # gbash-update-release 3.0.13
 
+branch=${PWD##*/}
 version=$1
 
 (./tools/version.py "$version" && \
@@ -15,6 +16,7 @@ export GPG_TTY=$(tty)
 (git tag -f -s -m "v$version" "v$version" && \
  git submodule foreach "if [ '$path' != 'modules/jgit' ]; then git tag -f -s -m v$version v$version; fi") || die
 
+git push origin HEAD:refs/for/"$branch" && \
 bazel build release Documentation:searchfree && \
 ./tools/maven/api.sh war_install && \
 ./tools/maven/api.sh install && \
