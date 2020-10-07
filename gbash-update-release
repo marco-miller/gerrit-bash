@@ -12,9 +12,9 @@ version=$1
 # shellcheck disable=SC2155
 export GPG_TTY=$(tty)
 
-# shellcheck disable=SC2154
+# shellcheck disable=SC2016,SC2154
 (git tag -f -s -m "v$version" "v$version" && \
- git submodule foreach "if [ '$path' != 'modules/jgit' ]; then git tag -f -s -m v$version v$version; fi") || die
+ git submodule foreach 'if [ $path != modules/jgit ]; then git tag -f -s -m v$version v$version; fi') || die
 
 git push origin HEAD:refs/for/"$branch" && \
 bazel build release Documentation:searchfree && \
