@@ -49,7 +49,9 @@ awk '{print $4}' < gbash-update-release-notes_issue-ID | xargs -I % sh -c '
   echo "\n  * [Issue %](https://bugs.chromium.org/p/gerrit/issues/detail?id=%):\n    Subject" >> gbash-update-release-notes_issue-md'
 rm gbash-update-release-notes_issue-ID
 
+# shellcheck disable=SC2129
 echo >> gbash-update-release-notes_issue-md
-git log "$log" --grep="$issue" --oneline | grep "$excluded" >> gbash-update-release-notes_issue-md
+git log "$log" --oneline | grep "$excluded" >> gbash-update-release-notes_issue-md
 
-# TODO: --invert-grep, for non-Issues.
+echo >> gbash-update-release-notes_issue-md
+git log "$log" --oneline --no-merges --grep="$issue" --invert-grep | grep -v "$excluded" >> gbash-update-release-notes_issue-md
