@@ -41,14 +41,15 @@ while read -r subject; do
   sed -i "$extension" "1,/Subject/s/Subject/$subject./" gbash-update-release-notes_issue-md
 done < gbash-update-release-notes_issue-Subject
 rm -f gbash-update-release-notes_issue-md.$backup
+rm gbash-update-release-notes_issue-Subject
 
 awk '{print $3}' < gbash-update-release-notes_issue-ID | xargs -I % sh -c '
   echo "\n  * [Issue %](https://bugs.chromium.org/p/gerrit/issues/detail?id=%):\n    Subject" >> gbash-update-release-notes_issue-md'
 awk '{print $4}' < gbash-update-release-notes_issue-ID | xargs -I % sh -c '
   echo "\n  * [Issue %](https://bugs.chromium.org/p/gerrit/issues/detail?id=%):\n    Subject" >> gbash-update-release-notes_issue-md'
-
 rm gbash-update-release-notes_issue-ID
-rm gbash-update-release-notes_issue-Subject
 
-# TODO: include Update git submodules.
+echo >> gbash-update-release-notes_issue-md
+git log "$log" --grep="$issue" --oneline | grep "$excluded" >> gbash-update-release-notes_issue-md
+
 # TODO: --invert-grep, for non-Issues.
