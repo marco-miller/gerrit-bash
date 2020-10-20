@@ -7,9 +7,8 @@ branch=${PWD##*/}
 version=$1
 next=$2
 
-# shellcheck disable=SC2016,SC2154
 (git push origin tag v"$version" && \
- git submodule foreach 'if [ $path != modules/jgit ]; then git push origin tag v$version; fi') || die
+ git submodule foreach "git push origin tag v$version") || die
 
 (./tools/version.py "$next"-SNAPSHOT && \
  git commit -a -m "Set version to $next-SNAPSHOT") || die
