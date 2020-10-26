@@ -8,7 +8,7 @@ version=$1
 next=$2
 
 (git push origin tag v"$version" && \
- git submodule foreach "git push origin tag v$version") || die
+ git submodule foreach "git push origin tag v$version||echo") || die
 
 (./tools/version.py "$next"-SNAPSHOT && \
  git commit -a -m "Set version to $next-SNAPSHOT") || die
