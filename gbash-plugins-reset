@@ -9,5 +9,6 @@ git submodule foreach git reset --hard origin/"$branch" && \
 
 git fetch && \
 git reset --hard origin/"$branch" && \
-git submodule update --init
+git submodule update --init && \
+git submodule foreach git fetch
 git status
