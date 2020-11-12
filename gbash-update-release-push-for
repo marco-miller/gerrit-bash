@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# -Usage example; informal script:
+# gbash-update-release-push-for stable-3.0 3.0.13 3.0.14
+
+branch=$1
+version=$2
+next=$3
+
+(git push origin tag v"$version" && \
+ git submodule foreach "git push origin tag v$version||echo") || die
+
+(./tools/version.py "$next"-SNAPSHOT && \
+ git commit -a -m "Set version to $next-SNAPSHOT") || die
+
+git push origin HEAD:refs/for/"$branch"
+git status
