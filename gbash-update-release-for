@@ -6,6 +6,8 @@
 branch=$1
 version=$2
 
+#cf. JDK_HOME => JAVA_HOME for bazel, gerrit-war' (in ~/.zshrc)
+
 (./tools/version.py "$version" && \
  git commit -a -m "Set version to $version") || die
 
