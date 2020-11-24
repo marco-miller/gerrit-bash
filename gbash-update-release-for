@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # -Usage example; informal script:
-# gbash-update-release stable-3.0 3.0.13
+# gbash-update-release-for stable-3.0 3.0.13
 
 branch=$1
 version=$2

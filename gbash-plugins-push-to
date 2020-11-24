@@ -1,10 +1,10 @@
 #!/bin/bash
 #
 # -Usage examples; informal script:
-# gbash-plugins-push
-# gbash-plugins-push l=Verified
-# gbash-plugins-push l=Verified, r=marco.miller@ericsson.com[,r=an.other@example.com]
-# gbash-plugins-push l=Verified, r=marco.miller@ericsson.com[,r=an.other@example.com], t=hashed
+# gbash-plugins-push-to stable-3.0
+# gbash-plugins-push-to stable-3.0 l=Verified
+# gbash-plugins-push-to stable-3.0 l=Verified, r=marco.miller@ericsson.com[,r=an.other@example.com]
+# gbash-plugins-push-to stable-3.0 l=Verified, r=marco.miller@ericsson.com[,r=an.other@example.com], t=hashed
 
 branch=$1
 label=$2
