@@ -6,5 +6,7 @@ testsite=$HOME/git/gerrit/testsites/$site
 "$(bazel info output_base)"/external/local_jdk/bin/java -jar \
   bazel-bin/gerrit.war init \
   --batch \
+  --dev \
+  --install-all-plugins \
   --no-auto-start \
   -d "$testsite"
