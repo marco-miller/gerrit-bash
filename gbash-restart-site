@@ -2,10 +2,5 @@
 
 suffix=$1
 
-branch=${PWD##*/}
-testsite=$HOME/git/gerrit/testsites/$branch$suffix
-
 gbash-stop-site "$suffix"
-
-"$testsite"/bin/gerrit.sh start
-tail -f "$testsite"/logs/error_log
+gbash-start-site "$suffix"

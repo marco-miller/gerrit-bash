@@ -1,0 +1,7 @@
+#!/bin/bash
+
+suffix=$1
+
+branch=${PWD##*/}
+
+gbash-start-site-there "$branch" "$suffix"

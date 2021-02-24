@@ -15,5 +15,4 @@ bazel shutdown && \
   --no-auto-start \
   -d "$testsite"
 
-"$testsite"/bin/gerrit.sh start
-tail -f "$testsite"/logs/error_log
+gbash-start-site-there "$branch" "$suffix"

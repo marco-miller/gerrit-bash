@@ -1,0 +1,9 @@
+#!/bin/bash
+
+branch=$1
+suffix=$2
+
+testsite=$HOME/git/gerrit/testsites/$branch$suffix
+
+"$testsite"/bin/gerrit.sh start
+tail -f "$testsite"/logs/error_log
