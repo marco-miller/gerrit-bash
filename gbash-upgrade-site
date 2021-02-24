@@ -1,9 +1,9 @@
 #!/bin/bash
 
-site=$1
-testsite=$HOME/git/gerrit/testsites/$site
+branch=$1
+testsite=$HOME/git/gerrit/testsites/$branch
 
-gbash-stop-site-there "$site"
+gbash-stop-branch-there "$branch"
 
 bazel build release && \
 bazel shutdown && \
