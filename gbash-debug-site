@@ -1,9 +1,11 @@
 #!/bin/bash
 
-branch=${PWD##*/}
-testsite=$HOME/git/gerrit/testsites/$branch
+suffix=$1
 
-gbash-stop-site
+branch=${PWD##*/}
+testsite=$HOME/git/gerrit/testsites/$branch$suffix
+
+gbash-stop-site "$suffix"
 
 bazel build release && \
 bazel shutdown && \

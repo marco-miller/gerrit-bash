@@ -1,7 +1,9 @@
 #!/bin/bash
 
+suffix=$1
+
 branch=${PWD##*/}
-testsite=$HOME/git/gerrit/testsites/$branch
+testsite=$HOME/git/gerrit/testsites/$branch$suffix
 
 "$(bazel info output_base)"/external/local_jdk/bin/java -jar \
   bazel-bin/release.war init \
@@ -13,4 +15,4 @@ testsite=$HOME/git/gerrit/testsites/$branch
 
 printf "[user]\n\temail = test@mail.com\n" >> "$testsite"/etc/gerrit.config
 
-gbash-restart-site
+gbash-restart-site "$suffix"

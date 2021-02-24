@@ -1,9 +1,11 @@
 #!/bin/bash
 
 branch=$1
-testsite=$HOME/git/gerrit/testsites/$branch
+suffix=$2
 
-gbash-stop-branch-there "$branch"
+testsite=$HOME/git/gerrit/testsites/$branch$suffix
+
+gbash-stop-branch-there "$branch" "$suffix"
 
 bazel build release && \
 bazel shutdown && \

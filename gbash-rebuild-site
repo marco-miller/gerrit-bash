@@ -1,8 +1,10 @@
 #!/bin/bash
 
-gbash-clean-site
+suffix=$1
+
+gbash-clean-site "$suffix"
 gbash-build-gerrit
 
 bazel build release && \
 bazel shutdown && \
-gbash-build-site
+gbash-build-site "$suffix"
