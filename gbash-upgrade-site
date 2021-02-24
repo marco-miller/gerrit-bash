@@ -3,6 +3,8 @@
 site=$1
 testsite=$HOME/git/gerrit/testsites/$site
 
+"$testsite"/bin/gerrit.sh stop
+
 bazel build release && \
 bazel shutdown && \
 "$(bazel info output_base)"/external/local_jdk/bin/java -jar \
@@ -12,3 +14,6 @@ bazel shutdown && \
   --install-all-plugins \
   --no-auto-start \
   -d "$testsite"
+
+"$testsite"/bin/gerrit.sh start
+tail -f "$testsite"/logs/error_log
