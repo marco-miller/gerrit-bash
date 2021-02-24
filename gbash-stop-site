@@ -6,4 +6,3 @@ branch=${PWD##*/}
 testsite=$HOME/git/gerrit/testsites/$branch$suffix
 
 "$testsite"/bin/gerrit.sh stop
-bazel shutdown
