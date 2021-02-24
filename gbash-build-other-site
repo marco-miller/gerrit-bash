@@ -33,6 +33,7 @@ sed -i "$extension" -E "s/(serverId = ).+/\1$serverId/" "$to"
   --no-auto-start \
   -d "$testsite"
 
+bazel shutdown
 printf "[user]\n\temail = test@mail.com\n" >> "$to"
 
 gbash-restart-site "$suffix"

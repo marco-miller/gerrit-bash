@@ -13,6 +13,7 @@ testsite=$HOME/git/gerrit/testsites/$branch$suffix
   --no-auto-start \
   -d "$testsite"
 
+bazel shutdown
 printf "[user]\n\temail = test@mail.com\n" >> "$testsite"/etc/gerrit.config
 
 gbash-restart-site "$suffix"

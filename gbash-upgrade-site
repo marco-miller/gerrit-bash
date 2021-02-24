@@ -8,11 +8,11 @@ testsite=$HOME/git/gerrit/testsites/$branch$suffix
 gbash-stop-branch-there "$branch" "$suffix"
 
 bazel build release && \
-bazel shutdown && \
 "$(bazel info output_base)"/external/local_jdk/bin/java -jar \
   bazel-bin/release.war init \
   --install-all-plugins \
   --no-auto-start \
   -d "$testsite"
+bazel shutdown
 
 gbash-start-site-there "$branch" "$suffix"
