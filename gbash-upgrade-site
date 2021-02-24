@@ -3,7 +3,7 @@
 site=$1
 testsite=$HOME/git/gerrit/testsites/$site
 
-"$testsite"/bin/gerrit.sh stop
+gbash-stop-site-there "$site"
 
 bazel build release && \
 bazel shutdown && \
