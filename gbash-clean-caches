@@ -2,5 +2,6 @@
 
 gbash-clean-expunge
 
+rm -fR "$HOME"/.cache/bazel/_bazel_"$USER"/*
 rm -fR "$HOME"/.gerritcodereview/bazel-cache/*
 rm -fR /private/var/tmp/_bazel_"$USER"/*
