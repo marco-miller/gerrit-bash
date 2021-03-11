@@ -2,6 +2,9 @@
 
 gbash-clean-expunge
 
-rm -fR "$HOME"/.cache/bazel/_bazel_"$USER"/*
-rm -fR "$HOME"/.gerritcodereview/bazel-cache/*
+# [1] https://docs.bazel.build/versions/master/output_directories.html#current-layout
+# [2] ~/.bazelrc (e.g.): startup --output_base=/...
 rm -fR /private/var/tmp/_bazel_"$USER"/*
+rm -fR "$HOME"/.cache/bazel/_bazel_"$USER"/*
+
+rm -fR "$HOME"/.gerritcodereview/bazel-cache/*
